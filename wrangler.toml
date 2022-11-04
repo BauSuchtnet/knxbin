@@ -7,6 +7,3 @@ account_id = "ab45df73624b008c8846f657226b601c"
 [[r2_buckets]]
 binding = 'PASTES_BUCKET'
 bucket_name = 'pastes-bucket'
-
-routes = [ { pattern = "haste-api.landania.dev", custom_domain = true, zone_name = "landania.dev" }
-]
