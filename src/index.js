@@ -14,6 +14,7 @@ export default {
 					'Access-Control-Allow-Credentials': 'true'
 				}})
 			case 'PUT':
+			case 'POST':
 				if(key !== 'documents')
 					return new Response('Unknown operation', { status: 404 });
 
@@ -77,7 +78,7 @@ export default {
 				return new Response('Method Not Allowed', {
 					status: 405,
 					headers: {
-						Allow: 'PUT, GET, OPTIONS',
+						Allow: 'PUT, POST, GET, OPTIONS',
 						'Access-Control-Allow-Origin': '*'
 					},
 				});
