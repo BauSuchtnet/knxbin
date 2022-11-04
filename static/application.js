@@ -1,6 +1,6 @@
 /* global $, hljs, window, document */
 
-const workersUrl = 'https://api.knx.cool/';
+const workersUrl = 'https://knxbin.landania.workers.dev/';
 
 ///// represents a single document
 var haste_document = function() {
