@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid'
+import { MD5 } from "md5-js-tools";
 
 export default {
 	async fetch(request, env) {
@@ -49,10 +50,17 @@ export default {
 					});
 				}
 
-				const object = await env.PASTES_BUCKET.get(key);
+				let object = await env.PASTES_BUCKET.get(key);
 
 				if (object === null) {
-					return new Response('{"data":"Object Not Found", "key":' + key + '}', { status: 404, headers: { 'Access-Control-Allow-Origin': '*' } });
+					const md5Hash = MD5.generate(key)
+					const md5Object = await env.PASTES_BUCKET.get(md5Hash);
+
+					if(md5Object === null) {
+						return new Response('{"data":"Object Not Found", "key":' + key + '}', { status: 404, headers: { 'Access-Control-Allow-Origin': '*' } });
+					}
+
+					object = md5Object
 				}
 
 				const headers = new Headers();

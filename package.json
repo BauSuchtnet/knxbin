@@ -10,6 +10,8 @@
     "deploy": "wrangler publish"
   },
   "dependencies": {
+    "crypto": "^1.0.1",
+    "md5-js-tools": "^1.0.2",
     "nanoid": "^4.0.0"
   }
 }
