@@ -51,6 +51,20 @@ export default {
 					});
 				}
 
+				if(key === 'documents') {
+					const randomKey = nanoid()
+
+					// get string from request body
+					const body = await request.text()
+
+					// if string length is over 10000000, return error
+					if(body.length > 10000000)
+						return new Response('Document too large', { status: 413, headers: { 'Access-Control-Allow-Origin': '*' } })
+
+					await env.PASTES_BUCKET.put(randomKey, body);
+					return new Response('{"key":"' + randomKey + '"}', { status: 200, headers: { 'Access-Control-Allow-Origin': '*' } });
+				}
+
 				let object = await env.PASTES_BUCKET.get(key);
 
 				if (object === null) {
