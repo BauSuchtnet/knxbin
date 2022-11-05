@@ -176,7 +176,12 @@ button.enabled {
 	display: block;
 }
 
-.logo a:hover svg path {
-	fill: #fff;
+.hover11 figure img {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover11 figure:hover img {
+	opacity: .5;
 }
 
