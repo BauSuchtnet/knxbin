@@ -6,10 +6,12 @@
 <body>
 <div id="content"></div>
 <script>
+	var n = window.location.href.lastIndexOf('/');
+	var result = window.location.href.substring(n + 1);
 	fetch("https://knxbin.landania.workers.dev/")
 	.then(response => response.text())
 	.then(text => {
-		document.getElementById("content").innerHTML = window.location.href;
+		document.getElementById("content").innerHTML = result;
 	});
 </script>
 </body>
