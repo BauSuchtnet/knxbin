@@ -8,7 +8,7 @@
 <script>
 	const n = window.location.href.lastIndexOf('/');
 	const result = window.location.href.substring(n + 1);
-	fetch("https://knxbin.landania.workers.dev/" + result)
+	fetch("https://knxbin.landania.workers.dev/raw/" + result)
 	.then(response => response.text())
 	.then(text => {
 		document.title = "Landania - " + result;
