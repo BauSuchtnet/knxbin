@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>knxbin</title>
+	<title>Landania</title>
 </head>
 <body>
 <div id="content"></div>
@@ -11,7 +11,7 @@
 	fetch("https://knxbin.landania.workers.dev/" + result)
 	.then(response => response.text())
 	.then(text => {
-		document.title = "knxbin - " + result;
+		document.title = "Landania - " + result;
 		document.getElementById("content").innerHTML = text;
 	});
 </script>
