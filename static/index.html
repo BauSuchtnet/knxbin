@@ -2,9 +2,9 @@
 <html>
 <head>
 	<title>knxbin</title>
+	<meta http-equiv="Content-Type" content="text/plain;charset=UTF-8"/>
 </head>
 <body>
-<div id="content"></div>
 <script>
 	const n = window.location.href.lastIndexOf('/');
 	const result = window.location.href.substring(n + 1);
@@ -12,7 +12,7 @@
 	.then(response => response.text())
 	.then(text => {
 		document.title = result;
-		document.getElementById("content").innerHTML = text;
+		document.write(text);
 	});
 </script>
 </body>
