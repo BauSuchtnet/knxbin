@@ -6,10 +6,10 @@
 <body>
 <div id="content"></div>
 <script>
-	fetch("https://knxbin.landania.workers.dev/" + /[^/]*$/.exec(window.location.href)[0])
+	fetch("https://knxbin.landania.workers.dev/")
 	.then(response => response.text())
 	.then(text => {
-		document.getElementById("content").innerHTML = text;
+		document.getElementById("content").innerHTML = window.location.href;
 	});
 </script>
 </body>
