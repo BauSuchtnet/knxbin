@@ -174,40 +174,7 @@ haste.prototype.lookupTypeByExtension = function(ext) {
 // Add line numbers to the document
 // For the specified number of lines
 haste.prototype.addLineNumbers = function(lineCount) {
-  removeElementsByClass('linenumber');
 
-  if(window.location.hash) {
-    const hash = window.location.hash.substring(1);
-    const lineElement = getLineElement(hash)
-    highlightNew(lineElement);
-
-    const y = lineElement.getBoundingClientRect().top + window.pageYOffset;
-    window.scrollTo({top: y, behavior: 'smooth'});
-  }
-  /*for (var i = 0; i < lineCount; i++) {
-    let div = document.createElement('a');
-    div.classList.add('linenumber');
-    div.style.marginTop = i * 16 + 'px';
-    let line = i + 1;
-    div.id = 'line' + line;
-    div.href = '#' + line;
-    div.onclick = function() {
-        highlightLine(line);
-    }
-    let text = document.createTextNode(line.toString());
-    div.appendChild(text);
-    document.body.appendChild(div)
-  }
-
-  if(window.location.hash) {
-    const hash = window.location.hash.substring(1);
-    highlightLine(hash)
-
-    /*document.getElementById('line' + hash).scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
-    });*/
-  //}
 };
 
 function highlightLine(line) {
@@ -229,13 +196,7 @@ function removeElementsByClass(className){
 
 // Remove the line numbers
 haste.prototype.removeLineNumbers = function() {
-  removeElementsByClass("highlight");
-  removeElementsByClass('linenumber');
-  let div = document.createElement('a');
-  div.classList.add('linenumber');
-  let text = document.createTextNode('>');
-  div.appendChild(text);
-  document.body.appendChild(div)
+
 };
 
 // Load a document and show it
